@@ -11,7 +11,7 @@ public class PlayerShoot : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         bulletSpeed = 25f; //movement speed of bullet
-        bulletfreq = 0.15f; //seconds between bullets
+        bulletfreq = 0.08f; //seconds between bullets
 	}
 	
 	// Update is called once per frame
