@@ -8,6 +8,7 @@ public class PlayerShoot : MonoBehaviour {
     float bulletSpeed;
     float bulletfreq, lastShot;
     Vector3 bulletColour;
+    public int health;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,11 @@ public class PlayerShoot : MonoBehaviour {
         bulletfreq = 0.2f; //seconds between bullets
 
         bulletColour = new Vector3(0f ,199f, 255f);
+
+        if (gameObject.name == "Ship1")
+        {
+            health = 500;
+        }
 
 
     }
@@ -26,8 +32,12 @@ public class PlayerShoot : MonoBehaviour {
         {
             Fire();
         }
-		
-	}
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Fire()
     {

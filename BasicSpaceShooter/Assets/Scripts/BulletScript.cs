@@ -33,5 +33,10 @@ public class BulletScript : MonoBehaviour {
         {
             collider.gameObject.GetComponent<EnemyShoot>().health -= damage;
         }
+
+        else if (collider.gameObject.tag == "Player" && isEnemyBullet)
+        {
+            collider.gameObject.GetComponent<PlayerShoot>().health -= damage;
+        }
     }
 }
