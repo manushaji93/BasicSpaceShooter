@@ -9,6 +9,7 @@ public class EnemyShoot : MonoBehaviour
     float bulletSpeed;
     float bulletfreq, lastShot;
     Vector3 bulletColour;
+    public int health;
 
     // Use this for initialization
     void Start()
@@ -17,6 +18,11 @@ public class EnemyShoot : MonoBehaviour
         bulletfreq = 0.5f; //seconds between bullets
 
         bulletColour = new Vector3(255f, 0f, 0f);
+
+        if (gameObject.name == "Enemy1")
+        {
+            health = 100;
+        }
 
     }
 
@@ -27,6 +33,11 @@ public class EnemyShoot : MonoBehaviour
         if (Time.time > lastShot)
         {
             Fire();
+        }
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
 
     }
@@ -50,6 +61,7 @@ public class EnemyShoot : MonoBehaviour
                         {
                             bulletSpeed = 15f; //movement speed of bullet                          
                             GameObject newBullet = GameObject.Instantiate(bullet2x4Damage1GO, pos, Quaternion.identity);
+                            newBullet.GetComponent<BulletScript>().isEnemyBullet = true;
                             newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
                             newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
                             break;
@@ -59,6 +71,7 @@ public class EnemyShoot : MonoBehaviour
                         {
                             bulletSpeed = 25f; //movement speed of bullet
                             GameObject newBullet = GameObject.Instantiate(bullet1x1Damage1GO, pos, Quaternion.identity);
+                            newBullet.GetComponent<BulletScript>().isEnemyBullet = true;
                             newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
                             newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
                             break;
