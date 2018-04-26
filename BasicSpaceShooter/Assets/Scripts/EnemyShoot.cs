@@ -2,40 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour {
+public class EnemyShoot : MonoBehaviour
+{
 
     public GameObject bullet2x4Damage1GO, bullet1x1Damage1GO;
     float bulletSpeed;
     float bulletfreq, lastShot;
     Vector3 bulletColour;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 
-        bulletfreq = 0.2f; //seconds between bullets
+        bulletfreq = 0.5f; //seconds between bullets
 
-        bulletColour = new Vector3(0f ,199f, 255f);
-
+        bulletColour = new Vector3(255f, 0f, 0f);
 
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        if (Input.GetKey(KeyCode.Mouse0) && (Time.time > lastShot))
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (Time.time > lastShot)
         {
             Fire();
         }
-		
-	}
+
+    }
 
     void Fire()
     {
-        
 
-        if (gameObject.name == "Ship1")
+
+        if (gameObject.name == "Enemy1")
         {
-            
+
             foreach (Transform childTransform in gameObject.GetComponentInChildren<Transform>())
             {
                 Vector3 pos = childTransform.position;
@@ -49,7 +51,7 @@ public class PlayerShoot : MonoBehaviour {
                             bulletSpeed = 15f; //movement speed of bullet                          
                             GameObject newBullet = GameObject.Instantiate(bullet2x4Damage1GO, pos, Quaternion.identity);
                             newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
-                            newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
+                            newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
                             break;
                         }
 
@@ -58,7 +60,7 @@ public class PlayerShoot : MonoBehaviour {
                             bulletSpeed = 25f; //movement speed of bullet
                             GameObject newBullet = GameObject.Instantiate(bullet1x1Damage1GO, pos, Quaternion.identity);
                             newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
-                            newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
+                            newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
                             break;
                         }
 
@@ -68,13 +70,13 @@ public class PlayerShoot : MonoBehaviour {
                         }
                 }
 
-                
-                
+
+
             }
 
             lastShot = Time.time + bulletfreq;
         }
-        
+
     }
 
 }
