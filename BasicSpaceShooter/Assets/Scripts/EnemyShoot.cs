@@ -15,13 +15,13 @@ public class EnemyShoot : MonoBehaviour
     void Start()
     {
 
-        bulletfreq = 0.5f; //seconds between bullets
+        bulletfreq = 1f; //seconds between bullets
 
         bulletColour = new Vector3(255f, 0f, 0f);
 
-        if (gameObject.name == "Enemy1")
+        if (gameObject.tag == "Enemy1")
         {
-            health = 100;
+            health = 50;
         }
 
     }
@@ -46,44 +46,46 @@ public class EnemyShoot : MonoBehaviour
     {
 
 
-        if (gameObject.name == "Enemy1")
+        if (gameObject.tag == "Enemy1")
         {
 
             foreach (Transform childTransform in gameObject.GetComponentInChildren<Transform>())
             {
-                Vector3 pos = childTransform.position;
-
-                string tag = childTransform.gameObject.tag;
-
-                switch (tag)
+                if (childTransform.gameObject.name == "Gun2" || childTransform.gameObject.name == "Gun7")
                 {
-                    case "Bullet2x4Damage1":
-                        {
-                            bulletSpeed = 15f; //movement speed of bullet                          
-                            GameObject newBullet = GameObject.Instantiate(bullet2x4Damage1GO, pos, Quaternion.identity);
-                            newBullet.GetComponent<BulletScript>().isEnemyBullet = true;
-                            newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
-                            newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
-                            break;
-                        }
+                    Vector3 pos = childTransform.position;
 
-                    case "Bullet1x1Damage1":
-                        {
-                            bulletSpeed = 25f; //movement speed of bullet
-                            GameObject newBullet = GameObject.Instantiate(bullet1x1Damage1GO, pos, Quaternion.identity);
-                            newBullet.GetComponent<BulletScript>().isEnemyBullet = true;
-                            newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
-                            newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
-                            break;
-                        }
+                    string tag = childTransform.gameObject.tag;
 
-                    default:
-                        {
-                            break;
-                        }
+                    switch (tag)
+                    {
+                        case "Bullet2x4Damage1":
+                            {
+                                bulletSpeed = 15f; //movement speed of bullet                          
+                                GameObject newBullet = Instantiate(bullet2x4Damage1GO, pos, Quaternion.identity);
+                                newBullet.GetComponent<BulletScript>().isEnemyBullet = true;
+                                newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
+                                newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
+                                break;
+                            }
+
+                        case "Bullet1x1Damage1":
+                            {
+                                bulletSpeed = 25f; //movement speed of bullet
+                                GameObject newBullet = Instantiate(bullet1x1Damage1GO, pos, Quaternion.identity);
+                                newBullet.GetComponent<BulletScript>().isEnemyBullet = true;
+                                newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
+                                newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
+                                break;
+                            }
+
+                        default:
+                            {
+                                break;
+                            }
+                    }
+
                 }
-
-
 
             }
 

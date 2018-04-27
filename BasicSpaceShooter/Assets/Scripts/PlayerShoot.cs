@@ -19,7 +19,7 @@ public class PlayerShoot : MonoBehaviour {
 
         if (gameObject.name == "Ship1")
         {
-            health = 500;
+            health = 200;
         }
 
 
@@ -57,7 +57,7 @@ public class PlayerShoot : MonoBehaviour {
                     case "Bullet2x4Damage1":
                         {
                             bulletSpeed = 15f; //movement speed of bullet                          
-                            GameObject newBullet = GameObject.Instantiate(bullet2x4Damage1GO, pos, Quaternion.identity);
+                            GameObject newBullet = Instantiate(bullet2x4Damage1GO, pos, Quaternion.identity);
                             newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
                             newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
                             break;
@@ -66,7 +66,7 @@ public class PlayerShoot : MonoBehaviour {
                     case "Bullet1x1Damage1":
                         {
                             bulletSpeed = 25f; //movement speed of bullet
-                            GameObject newBullet = GameObject.Instantiate(bullet1x1Damage1GO, pos, Quaternion.identity);
+                            GameObject newBullet = Instantiate(bullet1x1Damage1GO, pos, Quaternion.identity);
                             newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
                             newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
                             break;

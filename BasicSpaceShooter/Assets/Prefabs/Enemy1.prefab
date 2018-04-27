@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4231050996868378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun6
   m_TagString: Bullet2x4Damage1
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4033677703411376}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun4
   m_TagString: Bullet2x4Damage1
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4492176171992688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun7
   m_TagString: Bullet2x4Damage1
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4833410748903010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun8
   m_TagString: Bullet2x4Damage1
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4473368626322250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun3
   m_TagString: Bullet2x4Damage1
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4619521290803862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun2
   m_TagString: Bullet2x4Damage1
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4553528338673256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun1
   m_TagString: Bullet2x4Damage1
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4481992844588560}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun5
   m_TagString: Bullet2x4Damage1
   m_Icon: {fileID: 0}
@@ -143,9 +143,10 @@ GameObject:
   - component: {fileID: 61273857524052826}
   - component: {fileID: 50902873698376792}
   - component: {fileID: 114086968301432078}
-  m_Layer: 0
+  - component: {fileID: 114255695443638066}
+  m_Layer: 8
   m_Name: Enemy1
-  m_TagString: Enemy
+  m_TagString: Enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,7 +295,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61273857524052826
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -335,6 +336,18 @@ MonoBehaviour:
     type: 2}
   bullet1x1Damage1GO: {fileID: 1298868455075742, guid: dca33d560728ff94fb0ea3e633555eb4,
     type: 2}
+  health: 0
+--- !u!114 &114255695443638066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831389448165542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd78c9edf11956d4b88e1b7e3956cdaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212787683924293370
 SpriteRenderer:
   m_ObjectHideFlags: 1

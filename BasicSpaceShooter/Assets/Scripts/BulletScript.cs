@@ -24,19 +24,22 @@ public class BulletScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "BulletWall")
+        if (collider.gameObject.tag == "BulletWall" || collider.gameObject.tag == "EnemyWall")
         {
             Destroy(gameObject);
         }
         
-        else if (collider.gameObject.tag == "Enemy" && !isEnemyBullet)
+        else if (collider.gameObject.tag == "Enemy1" && !isEnemyBullet)
         {
             collider.gameObject.GetComponent<EnemyShoot>().health -= damage;
+            Destroy(gameObject);
         }
 
         else if (collider.gameObject.tag == "Player" && isEnemyBullet)
         {
             collider.gameObject.GetComponent<PlayerShoot>().health -= damage;
+            Destroy(gameObject);
         }
     }
+
 }
