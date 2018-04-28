@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
 
-    public GameObject bullet2x4Damage1GO, bullet1x1Damage1GO;
+    public GameObject bullet2x4Damage1GO, bullet1x1Damage1GO, enemy1DestroyParticleGO;
     float bulletSpeed;
     float bulletfreq, lastShot;
     Vector3 bulletColour;
@@ -37,6 +37,7 @@ public class EnemyShoot : MonoBehaviour
 
         if (health <= 0)
         {
+            Instantiate(enemy1DestroyParticleGO, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
@@ -51,40 +52,36 @@ public class EnemyShoot : MonoBehaviour
 
             foreach (Transform childTransform in gameObject.GetComponentInChildren<Transform>())
             {
-                if (childTransform.gameObject.name == "Gun2" || childTransform.gameObject.name == "Gun7")
+                Vector3 pos = childTransform.position;
+
+                string tag = childTransform.gameObject.tag;
+
+                switch (tag)
                 {
-                    Vector3 pos = childTransform.position;
+                    case "Bullet2x4Damage1":
+                        {
+                            bulletSpeed = 15f; //movement speed of bullet                          
+                            GameObject newBullet = Instantiate(bullet2x4Damage1GO, pos, Quaternion.identity);
+                            newBullet.GetComponent<BulletScript>().isEnemyBullet = true;
+                            newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
+                            newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
+                            break;
+                        }
 
-                    string tag = childTransform.gameObject.tag;
+                    case "Bullet1x1Damage1":
+                        {
+                            bulletSpeed = 25f; //movement speed of bullet
+                            GameObject newBullet = Instantiate(bullet1x1Damage1GO, pos, Quaternion.identity);
+                            newBullet.GetComponent<BulletScript>().isEnemyBullet = true;
+                            newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
+                            newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
+                            break;
+                        }
 
-                    switch (tag)
-                    {
-                        case "Bullet2x4Damage1":
-                            {
-                                bulletSpeed = 15f; //movement speed of bullet                          
-                                GameObject newBullet = Instantiate(bullet2x4Damage1GO, pos, Quaternion.identity);
-                                newBullet.GetComponent<BulletScript>().isEnemyBullet = true;
-                                newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
-                                newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
-                                break;
-                            }
-
-                        case "Bullet1x1Damage1":
-                            {
-                                bulletSpeed = 25f; //movement speed of bullet
-                                GameObject newBullet = Instantiate(bullet1x1Damage1GO, pos, Quaternion.identity);
-                                newBullet.GetComponent<BulletScript>().isEnemyBullet = true;
-                                newBullet.GetComponent<SpriteRenderer>().color = new Color(bulletColour.x, bulletColour.y, bulletColour.z);
-                                newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletSpeed;
-                                break;
-                            }
-
-                        default:
-                            {
-                                break;
-                            }
-                    }
-
+                    default:
+                        {
+                            break;
+                        }
                 }
 
             }

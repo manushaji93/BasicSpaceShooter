@@ -13,6 +13,7 @@ TagManager:
   - EnemyWall
   - SpawnPoint
   - Enemy1
+  - PlayerHealthText
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - 
   - 
   - Enemy
-  - 
-  - 
+  - PlayerWall
+  - Player
   - 
   - 
   - 
