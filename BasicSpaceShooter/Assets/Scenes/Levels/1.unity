@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 672061965}
   - component: {fileID: 672061964}
   - component: {fileID: 672061969}
+  - component: {fileID: 672061970}
   m_Layer: 0
   m_Name: Ship1
   m_TagString: Player
@@ -658,6 +659,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &672061970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 672061963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95840aaf070b43c4393d4b0e100bd663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recordTime: 5
 --- !u!1 &754598565
 GameObject:
   m_ObjectHideFlags: 0

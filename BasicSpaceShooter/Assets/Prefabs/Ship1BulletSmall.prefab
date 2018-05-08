@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61381187665216296}
   - component: {fileID: 50073403629272328}
   - component: {fileID: 114447384247148424}
+  - component: {fileID: 114947051870612258}
   m_Layer: 0
   m_Name: Ship1BulletSmall
   m_TagString: Bullet1x1Damage1
@@ -99,6 +100,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa9ea4335ddf9646a7bb0923f478988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemyBullet: 0
+--- !u!114 &114947051870612258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1298868455075742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95840aaf070b43c4393d4b0e100bd663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recordTime: 5
 --- !u!212 &212631235034743080
 SpriteRenderer:
   m_ObjectHideFlags: 1

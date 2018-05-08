@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 50902873698376792}
   - component: {fileID: 114086968301432078}
   - component: {fileID: 114255695443638066}
+  - component: {fileID: 114699734901877698}
   m_Layer: 8
   m_Name: Enemy1
   m_TagString: Enemy1
@@ -178,6 +179,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy1DestroyParticleGO: {fileID: 1238875618111050, guid: e0f8b53e937049f4c8fc2e113a2cd7ee,
     type: 2}
+--- !u!114 &114699734901877698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831389448165542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95840aaf070b43c4393d4b0e100bd663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recordTime: 5
 --- !u!212 &212787683924293370
 SpriteRenderer:
   m_ObjectHideFlags: 1
