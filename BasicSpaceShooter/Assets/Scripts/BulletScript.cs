@@ -44,6 +44,9 @@ public class BulletScript : MonoBehaviour {
             collider.gameObject.GetComponent<PlayerShoot>().health -= damage;
             Destroy(gameObject);
 
+            if (collider.gameObject.GetComponent<PlayerShoot>().health < 0)
+                collider.gameObject.GetComponent<PlayerShoot>().health = 0;
+
             playerHealthText.text = "Health: " + collider.gameObject.GetComponent<PlayerShoot>().health;
         }
     }

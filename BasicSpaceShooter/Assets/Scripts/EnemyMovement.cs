@@ -39,6 +39,9 @@ public class EnemyMovement : MonoBehaviour {
             Destroy(gameObject);
             collider.gameObject.GetComponent<PlayerShoot>().health -= 10;
 
+            if (collider.gameObject.GetComponent<PlayerShoot>().health < 0)
+                collider.gameObject.GetComponent<PlayerShoot>().health = 0;
+
             playerHealthText.text = "Health: "+ collider.gameObject.GetComponent<PlayerShoot>().health;
         }
     }

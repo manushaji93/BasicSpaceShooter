@@ -6,7 +6,8 @@ public class TimeBody : MonoBehaviour
 {
 
     bool isRewinding = false;
-
+    
+    [Range (0,10)]
     public float recordTime = 5f;
 
     List<PointInTime> pointsInTime;
